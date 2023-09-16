@@ -27,7 +27,7 @@ def recommend(movie):
     distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
     recommended_movie_names = []
     recommended_movie_posters = []
-    for i in distances[1:6]:
+    for i in distances[1:8]:
         # fetch the movie poster
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movie_posters.append(fetch_poster(movie_id))
@@ -36,7 +36,7 @@ def recommend(movie):
     return recommended_movie_names,recommended_movie_posters
 
 
-st.header('Pragyan AI: Movie Recommender System')
+st.header(' Vedant Movie Recommender System')
 movies = pickle.load(open('movie_list_1.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 
@@ -63,5 +63,11 @@ if st.button('Show Recommendation'):
         st.text(recommended_movie_names[3])
         st.image(recommended_movie_posters[3])
     with col5:
+        st.text(recommended_movie_names[4])
+        st.image(recommended_movie_posters[4])
+    with col6:
+        st.text(recommended_movie_names[4])
+        st.image(recommended_movie_posters[4])
+        with col7:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
